@@ -71,14 +71,17 @@ public class ListNhac extends AppCompatActivity {
     }
 
     void display(){
-        final ArrayList<File> mySongs = findSong(Environment.getExternalStorageDirectory());
+        final ArrayList<File> mySongs = findSong(Environment.getExternalStorageDirectory());//lấy danh sách file nhạc trong hệ thống
         items = new String[mySongs.size()];
         for(int i =0;i<mySongs.size();i++){
+            //lấy tên của nhạc, thay đổi ký tự .mp3 và . wav thành ký tự trắng ""
             items[i] = mySongs.get(i).getName().replace(".mp3","").replace(".wav","");
         }
+        //tạo mảng ArrayAdapter kieu String, đưa mảng danh sach nhạc tên items vào mảng ArrayAdapter
         ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,items);
+        //setAdapter vào ListView để hiển thị
         myListViewForSong.setAdapter(myAdapter);
-
+        //Bắt sự kiện click cho ListView
         myListViewForSong.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

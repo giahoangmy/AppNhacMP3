@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -33,11 +34,15 @@ public class MainActivity extends AppCompatActivity {
 
     TabLayout tabLayout;
     ViewPager viewPager;
+    String userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Intent iUser = getIntent();
+        Bundle b = iUser.getExtras();
+        userName = (String) b.get("USER");
         anhxa();
         init();
 
@@ -45,8 +50,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void init(){
         MainViewPaperAdapter mainViewPaperAdapter = new MainViewPaperAdapter(getSupportFragmentManager());
+        Bundle bundle = new Bundle();
+        bundle.putString("USERNAME", userName);
+        // set Fragmentclass Arguments
+        Fragment_Profile fragmentProfile = new Fragment_Profile();
+        fragmentProfile.setArguments(bundle);
         mainViewPaperAdapter.addFragment(new Fragment_Trang_Chu(),"Trang Chu");
-        mainViewPaperAdapter.addFragment(new Fragment_Profile(),"Profile");
+        mainViewPaperAdapter.addFragment(fragmentProfile,"Profile");
         mainViewPaperAdapter.addFragment(new Fragment_Tim_Kiem(),"Tim Kiem");
         viewPager.setAdapter(mainViewPaperAdapter);
         tabLayout.setupWithViewPager(viewPager);

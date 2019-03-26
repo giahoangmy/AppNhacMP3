@@ -4,34 +4,281 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/gradient">
-    <!--
+    android:layout_height="wrap_content">
+    <ListView
+        android:layout_marginLeft="20dp"
+        android:id="@+id/listViewPlayList"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"></ListView>
+
     <android.support.v7.widget.CardView
-        android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:id="@+id/cardViewTheLoai1"
+        android:layout_width="175dp"
+        android:layout_height="100dp"
         app:cardBackgroundColor="@color/colorAccent"
-        app:cardCornerRadius="25dp"
+        app:cardCornerRadius="10dp"
         app:cardElevation="10dp"
-        android:id="@+id/cardViewPlayList1">
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/listViewPlayList"
+        >
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="175dp"
+                android:layout_height="100dp"
+                android:src="@drawable/theloailove"
+                android:scaleType="centerCrop"/>
 
             <TextView
                 android:id="@+id/txtPlayList1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="PlayList1"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="20dp"
+                android:text="Love"
+                android:textStyle="bold"
                 android:textColor="#fff"
                 android:textSize="18sp" />
         </RelativeLayout>
     </android.support.v7.widget.CardView>
-    -->
-    <ListView
-        android:id="@+id/listViewPlayList"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"></ListView>
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardViewTheLoai2"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/listViewPlayList"
+        android:layout_marginRight="20dp"
+        android:layout_width="175dp"
+        android:layout_height="100dp"
+        app:cardBackgroundColor="@color/colorAccent"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="175dp"
+                android:layout_height="100dp"
+                android:src="@drawable/theloainhachappy"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:id="@+id/txtPlayList2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="20dp"
+                android:text="Happy"
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:textSize="18sp" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardViewTheLoai3"
+        android:layout_below="@+id/cardViewTheLoai1"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="175dp"
+        android:layout_height="100dp"
+        app:cardBackgroundColor="@color/colorAccent"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="175dp"
+                android:layout_height="100dp"
+                android:src="@drawable/theloainhachot"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:id="@+id/txtPlayList3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="20dp"
+                android:text="Nhạc Hot"
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:textSize="18sp" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardViewTheLoai4"
+        android:layout_below="@+id/cardViewTheLoai2"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="175dp"
+        android:layout_height="100dp"
+        app:cardBackgroundColor="@color/colorAccent"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="175dp"
+                android:layout_height="100dp"
+                android:src="@drawable/theloaivpop"
+                android:scaleType="centerCrop"/>
+            <TextView
+                android:id="@+id/txtPlayList4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="20dp"
+                android:text="Thế Giới V-pop"
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:textSize="18sp"/>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardViewTheLoai5"
+        android:layout_below="@+id/cardViewTheLoai3"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="175dp"
+        android:layout_height="100dp"
+        app:cardBackgroundColor="@color/colorAccent"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="175dp"
+                android:layout_height="100dp"
+                android:src="@drawable/theloaitop100"
+                android:scaleType="centerCrop"/>
+            <TextView
+                android:id="@+id/txtPlayList5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="20dp"
+                android:text="Top 100"
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:textSize="18sp"/>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardViewTheLoai6"
+        android:layout_below="@+id/cardViewTheLoai4"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="175dp"
+        android:layout_height="100dp"
+        app:cardBackgroundColor="@color/colorAccent"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="175dp"
+                android:layout_height="100dp"
+                android:src="@drawable/theloaimotivation"
+                android:scaleType="centerCrop"/>
+            <TextView
+                android:id="@+id/txtPlayList6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="20dp"
+                android:text="Motivation"
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:textSize="18sp"/>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardViewTheLoai7"
+        android:layout_below="@+id/cardViewTheLoai5"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="175dp"
+        android:layout_height="100dp"
+        app:cardBackgroundColor="@color/colorAccent"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="175dp"
+                android:layout_height="100dp"
+                android:src="@drawable/theloaibuon"
+                android:scaleType="centerCrop"/>
+            <TextView
+                android:id="@+id/txtPlayList7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="20dp"
+                android:text="Buồn"
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:textSize="18sp"/>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardViewTheLoai8"
+        android:layout_below="@+id/cardViewTheLoai6"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="175dp"
+        android:layout_height="100dp"
+        app:cardBackgroundColor="@color/colorAccent"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="175dp"
+                android:layout_height="100dp"
+                android:src="@drawable/theloainhacviet"
+                android:scaleType="centerCrop"/>
+            <TextView
+                android:id="@+id/txtPlayList8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="20dp"
+                android:text="Nhạc Việt"
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:textSize="18sp"/>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
 </RelativeLayout>

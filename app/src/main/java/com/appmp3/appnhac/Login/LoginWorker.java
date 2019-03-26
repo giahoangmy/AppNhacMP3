@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.appmp3.appnhac.Activity.MainActivity;
+import com.appmp3.appnhac.Model.User;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -24,18 +25,20 @@ import retrofit2.http.Url;
 
 public class LoginWorker extends AsyncTask<String, Void, String> {
     Context context;
+    String userName;
     AlertDialog alertDialog;
     LoginWorker (Context ctx) {
         context = ctx;
+
     }
     @Override
     protected String doInBackground(String... params) {
         String type = params[0];
-        Log.d("hoangmy1",type);
         String login_url = "http://10.0.2.2:8081/PhpAppNhac/Service/login.php";
         if(type.equals("login")) {
             try {
                 String user_name = params[1];
+                this.userName = user_name;
                 String password = params[2];
                 URL url = new URL(login_url);
                 HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
@@ -82,7 +85,9 @@ public class LoginWorker extends AsyncTask<String, Void, String> {
         alertDialog.show();
         if(result.contains("login success")){
             Intent intent = new Intent();
+            User user = new User(userName);
             intent.setClass(context.getApplicationContext(), MainActivity.class);
+            intent.putExtra("USER",user.getUserName());
             context.startActivity(intent);
         }
     }
