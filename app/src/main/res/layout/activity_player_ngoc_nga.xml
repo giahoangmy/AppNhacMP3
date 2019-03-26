@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.PlayerActivityNgocNga"
+    android:background="@drawable/b1">
+    <TextView
+        android:textSize="24dp"
+        android:textColor="#000"
+        android:text="Tên Bài Hát"
+        android:padding="5dp"
+        android:id="@+id/textviewTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ImageButton
+        android:id="@+id/ImagaButtonNext"
+        android:layout_width="90dp"
+        android:layout_height="80dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="50dp"
+        android:background="@null"
+        android:src="@drawable/next" />
+
+    <ImageButton
+        android:id="@+id/ImageButtonPrev"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="50dp"
+        android:background="@null"
+        android:src="@drawable/perv"
+        />
+
+    <ImageButton
+        android:id="@+id/ImageButtonStop"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="95dp"
+        android:layout_marginBottom="50dp"
+        android:background="@null"
+        android:src="@drawable/pause"
+        />
+
+    <ImageButton
+        android:id="@+id/ImageButtonPlay"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="95dp"
+        android:layout_marginBottom="50dp"
+        android:background="@null"
+        android:src="@drawable/play2"
+        />
+
+    <SeekBar
+        android:id="@+id/seebarSong"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="150dp"
+        android:layout_marginRight="15dp" />
+
+    <TextView
+        android:id="@+id/textViewTimeSong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="170dp"
+        android:layout_alignParentBottom="true"
+        android:text="00:00"
+        android:textColor="#fff"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/testViewTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="15dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="170dp"
+        android:text="00:00"
+        android:textColor="#fff"
+        android:textSize="15dp" />
+
+    <ImageView
+        android:id="@+id/imageViewCd"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="30dp"
+        app:srcCompat="@drawable/cd1" />
+</RelativeLayout>

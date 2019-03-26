@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.appmp3.appnhac.Activity.ListNhac;
 import com.appmp3.appnhac.Activity.MainActivity;
+import com.appmp3.appnhac.Activity.PlayerActivityNgocNga;
 import com.appmp3.appnhac.R;
 
 public class Fragment_PlayList extends Fragment{
@@ -38,8 +39,12 @@ public class Fragment_PlayList extends Fragment{
         listViewPlayList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(items[position].equals("PlayList1")){
+                if(items[position].equals("Có thể bạn muốn nghe")){
                     Intent intent = new Intent(view.getContext(), ListNhac.class);
+                    startActivity(intent);
+                }
+                if(items[position].equals("Dành cho bạn")){
+                    Intent intent = new Intent(view.getContext(), PlayerActivityNgocNga.class);
                     startActivity(intent);
                 }
             }

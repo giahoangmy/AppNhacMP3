@@ -14,9 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Activity.MainActivity" />
-        <activity android:name=".Login.LoginActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Activity.ManHinhChaoActivity"
+        <activity
+            android:name=".Login.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.ManHinhChaoActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,7 +28,8 @@
         </activity>
         <activity android:name=".Activity.ListNhac" />
         <activity android:name=".Activity.PlayerActivity" />
-        <activity android:name=".Signup.SignUp"></activity>
+        <activity android:name=".Signup.SignUp" />
+        <activity android:name=".Activity.PlayerActivityNgocNga"></activity>
     </application>
 
 </manifest>
