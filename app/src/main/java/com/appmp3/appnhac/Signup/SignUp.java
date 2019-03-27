@@ -29,8 +29,8 @@ public class SignUp extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
         btnSignUp = (Button) findViewById(R.id.buttonSignUp);
         eName = (EditText) findViewById(R.id.editHoVaTen);
-        eUsername = (EditText) findViewById(R.id.editHoVaTen);
-        ePassword = (EditText) findViewById(R.id.editHoVaTen);
+        eUsername = (EditText) findViewById(R.id.editUserName);
+        ePassword = (EditText) findViewById(R.id.editPass);
         eEmail = (EditText) findViewById(R.id.editEmail);
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
