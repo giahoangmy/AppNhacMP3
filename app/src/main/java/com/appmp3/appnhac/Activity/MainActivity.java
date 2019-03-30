@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager viewPager;
     String userName;
+    Integer tan = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,13 +53,17 @@ public class MainActivity extends AppCompatActivity {
         MainViewPaperAdapter mainViewPaperAdapter = new MainViewPaperAdapter(getSupportFragmentManager());
         Bundle bundle = new Bundle();
         bundle.putString("USERNAME", userName);
-        // set Fragmentclass Arguments
+        // set Fragmentclass Arguments, chuyền dữ liệu userName cho Fragment_Profile
         Fragment_Profile fragmentProfile = new Fragment_Profile();
         fragmentProfile.setArguments(bundle);
+        //-------------------------------
+
+        //Gắn những trang Fragment vào ViewPaper
         mainViewPaperAdapter.addFragment(new Fragment_Trang_Chu(),"Trang Chu");
         mainViewPaperAdapter.addFragment(fragmentProfile,"Profile");
         mainViewPaperAdapter.addFragment(new Fragment_Tim_Kiem(),"Tim Kiem");
         viewPager.setAdapter(mainViewPaperAdapter);
+        //setup ViewPaper vào TabLayout, số trang VỉewPaper tương ứng với số TabLayout
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.getTabAt(0).setIcon(R.drawable.icontrangchu);
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_account_circle);
