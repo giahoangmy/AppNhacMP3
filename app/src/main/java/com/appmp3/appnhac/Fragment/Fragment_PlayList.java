@@ -1,122 +1,93 @@
 package com.appmp3.appnhac.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
-import com.appmp3.appnhac.Activity.ListNhac;
-import com.appmp3.appnhac.Activity.MainActivity;
-import com.appmp3.appnhac.Activity.PlayerActivityNgocNga;
+import com.appmp3.appnhac.Adapter.PlaylistAdapter;
+import com.appmp3.appnhac.Model.PlayList;
 import com.appmp3.appnhac.R;
+import com.appmp3.appnhac.Service.APIService;
+import com.appmp3.appnhac.Service.Dataservice;
 
-public class Fragment_PlayList extends Fragment{
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class Fragment_PlayList extends Fragment {
     View view;
-    String[] items = new String[4];
+    ListView lvPlayList;
+    TextView txtTitlePlayList, txtXemThemPlayList;
+    PlaylistAdapter playlistAdapter;
+    ArrayList<PlayList> arrayPlayList;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_playlist,container,false);
-        //CardView cardView = view.findViewById(R.id.cardViewPlayList1);
-        final ListView listViewPlayList = view.findViewById(R.id.listViewPlayList);
-        items[0] = "Có thể bạn muốn nghe";
-        items[1] = "Dành cho bạn";
-        items[2] = "La cà nghe nhạc";
-        items[3] = "Top 100";
-
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(view.getContext(),android.R.layout.simple_list_item_1,items);
-        listViewPlayList.setAdapter(arrayAdapter);
-        listViewPlayList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(items[position].equals("Có thể bạn muốn nghe")){
-                    Intent intent = new Intent(view.getContext(), ListNhac.class);
-                    startActivity(intent);
-                }
-                if(items[position].equals("Dành cho bạn")){
-                    Intent intent = new Intent(view.getContext(), PlayerActivityNgocNga.class);
-                    startActivity(intent);
-                }
-            }
-        });
-        onClickCardView();
-
+        lvPlayList = view.findViewById(R.id.listviewplaylist);
+        txtTitlePlayList = view.findViewById(R.id.txtTitlePlayList);
+        txtXemThemPlayList = view.findViewById(R.id.txtXemThemPlayList);
+        GetData();
         return view;
     }
-    public void onClickCardView(){
-        CardView cardView1 = view.findViewById(R.id.cardViewTheLoai1);
-        cardView1.setOnClickListener(new View.OnClickListener() {
+
+    private void GetData() {
+        Dataservice dataservice = APIService.getService();
+        Call<List<PlayList>> callBack = dataservice.GetPlayListCurrentDay();
+        callBack.enqueue(new Callback<List<PlayList>>() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(view.getContext(), ListNhac.class);
-                startActivity(intent);
+            public void onResponse(Call<List<PlayList>> call, Response<List<PlayList>> response) {
+                arrayPlayList = (ArrayList<PlayList>) response.body();
+                playlistAdapter = new PlaylistAdapter(getActivity(),android.R.layout.simple_list_item_1,arrayPlayList);
+                lvPlayList.setAdapter(playlistAdapter);
+                setListViewHeightBasedOnChildren(lvPlayList);
+            }
+
+            @Override
+            public void onFailure(Call<List<PlayList>> call, Throwable t) {
+
             }
         });
-        CardView cardView2 = view.findViewById(R.id.cardViewTheLoai2);
-        cardView2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(view.getContext(), ListNhac.class);
-                startActivity(intent);
+
+    }
+
+    public void setListViewHeightBasedOnChildren(ListView listView) {
+        ListAdapter listAdapter = listView.getAdapter();
+        if (listAdapter == null) {
+            // pre-condition
+            return;
+        }
+
+        int totalHeight = listView.getPaddingTop() + listView.getPaddingBottom();
+        int desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.getWidth(), View.MeasureSpec.AT_MOST);
+        for (int i = 0; i < listAdapter.getCount(); i++) {
+            View listItem = listAdapter.getView(i, null, listView);
+
+            if(listItem != null){
+                // This next line is needed before you call measure or else you won't get measured height at all. The listitem needs to be drawn first to know the height.
+                listItem.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
+                listItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
+                totalHeight += listItem.getMeasuredHeight();
+
             }
-        });
-        CardView cardView3 = view.findViewById(R.id.cardViewTheLoai3);
-        cardView3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(view.getContext(), ListNhac.class);
-                startActivity(intent);
-            }
-        });
-        CardView cardView4 = view.findViewById(R.id.cardViewTheLoai4);
-        cardView4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(view.getContext(), ListNhac.class);
-                startActivity(intent);
-            }
-        });
-        CardView cardView5 = view.findViewById(R.id.cardViewTheLoai5);
-        cardView5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(view.getContext(), ListNhac.class);
-                startActivity(intent);
-            }
-        });
-        CardView cardView6 = view.findViewById(R.id.cardViewTheLoai6);
-        cardView6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(view.getContext(), ListNhac.class);
-                startActivity(intent);
-            }
-        });
-        CardView cardView7 = view.findViewById(R.id.cardViewTheLoai7);
-        cardView7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(view.getContext(), ListNhac.class);
-                startActivity(intent);
-            }
-        });
-        CardView cardView8 = view.findViewById(R.id.cardViewTheLoai8);
-        cardView8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(view.getContext(), ListNhac.class);
-                startActivity(intent);
-            }
-        });
+        }
+
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+        listView.setLayoutParams(params);
+        listView.requestLayout();
     }
 }

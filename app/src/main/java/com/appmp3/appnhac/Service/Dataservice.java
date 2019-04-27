@@ -1,6 +1,8 @@
 package com.appmp3.appnhac.Service;
 
+import com.appmp3.appnhac.Model.PlayList;
 import com.appmp3.appnhac.Model.Quangcao;
+import com.appmp3.appnhac.Model.TheLoaiTrongNgay;
 
 import java.util.List;
 
@@ -12,6 +14,12 @@ public interface Dataservice {
     @GET("songbanner.php")
     //Hàm call nhận dữ liệu server trả về
     Call<List<Quangcao>> GetDataBanner();
+
+    @GET("playlistforcurrentday.php")
+    Call<List<PlayList>> GetPlayListCurrentDay();
+
+    @GET("Chudevatheloaitrongngay.php")
+    Call<TheLoaiTrongNgay> GetTheLoaiTrongNgay();
 
 }
 

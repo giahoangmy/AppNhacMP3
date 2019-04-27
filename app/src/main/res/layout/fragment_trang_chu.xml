@@ -23,5 +23,12 @@
             android:layout_height="wrap_content">
 
         </fragment>
+        <fragment
+            android:name="com.appmp3.appnhac.Fragment.Fragment_Chude_Theloai_Today"
+            android:id="@+id/fragmentchudetheloai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </fragment>
     </LinearLayout>
 </ScrollView>
