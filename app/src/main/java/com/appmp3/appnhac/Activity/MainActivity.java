@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     TabLayout tabLayout;
     ViewPager viewPager;
-    String userName;
+    String userName = "my";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
