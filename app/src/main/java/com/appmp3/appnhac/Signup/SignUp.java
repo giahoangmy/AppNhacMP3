@@ -29,9 +29,10 @@ public class SignUp extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
         btnSignUp = (Button) findViewById(R.id.buttonSignUp);
         eName = (EditText) findViewById(R.id.editHoVaTen);
-        eUsername = (EditText) findViewById(R.id.editHoVaTen);
-        ePassword = (EditText) findViewById(R.id.editHoVaTen);
+        eUsername = (EditText) findViewById(R.id.editUserName);
+        ePassword = (EditText) findViewById(R.id.editPass);
         eEmail = (EditText) findViewById(R.id.editEmail);
+
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,6 +46,10 @@ public class SignUp extends AppCompatActivity {
         String email = eEmail.getText().toString();
         String username = eUsername.getText().toString();
         String pass = ePassword.getText().toString();
+        Log.d("a111",name.toString());
+        Log.d("a222",email.toString());
+        Log.d("a333",username.toString());
+        Log.d("a444",pass.toString());
 
         //Kiểm tra chuỗi email
         pattern = Pattern.compile(EMAIL_PATTERN);
