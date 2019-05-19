@@ -39,6 +39,10 @@ public class SignUpWorker extends AsyncTask<String, Void, String> {
                 String email = params[2];
                 String user_name = params[3];
                 String password = params[4];
+                Log.d("a111",name);
+                Log.d("a222",email);
+                Log.d("a333",user_name);
+                Log.d("a444",password);
                 URL url = new URL(login_url);
                 HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
                 httpURLConnection.setRequestMethod("POST");
