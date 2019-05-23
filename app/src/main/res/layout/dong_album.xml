@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="10dp"
+    app:cardCornerRadius="10dp">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/linearcardviewalbum"
+        >
+        <ImageView
+            android:id="@+id/imageviewalbum"
+            android:layout_gravity="center"
+            android:scaleType="fitXY"
+            android:layout_width="200dp"
+            android:layout_height="200dp" />
+        <TextView
+            android:maxWidth="200dp"
+            android:text="Ngay xuan long phung"
+            android:textSize="20sp"
+            android:id="@+id/textviewtenalbum"
+            android:ellipsize="end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:maxLines="1"/>
+        <TextView
+            android:id="@+id/textViewTenCaSiAlbum"
+            android:layout_marginRight="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="#9e9797"
+            android:maxWidth="200dp"
+            android:textSize="15sp"
+            android:text="Gia Hoang My"
+
+            />
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

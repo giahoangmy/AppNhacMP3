@@ -1,11 +1,11 @@
 package com.appmp3.appnhac.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +14,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.appmp3.appnhac.Activity.PlayerActivityNgocNga;
 import com.appmp3.appnhac.Model.ChuDe;
 import com.appmp3.appnhac.Model.TheLoai;
 import com.appmp3.appnhac.Model.TheLoaiTrongNgay;
 import com.appmp3.appnhac.R;
-import com.appmp3.appnhac.Service.APIRetrofitClient;
 import com.appmp3.appnhac.Service.APIService;
 import com.appmp3.appnhac.Service.Dataservice;
 import com.squareup.picasso.Picasso;
@@ -76,6 +76,13 @@ public class Fragment_Chude_Theloai_Today extends Fragment {
                     cardView.setLayoutParams(layout);
                     cardView.addView(imageView);
                     linearLayout.addView(cardView);
+                    imageView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(getActivity(), PlayerActivityNgocNga.class);
+                            startActivity(intent);
+                        }
+                    });
                 }
 
                 for (int j = 0 ; j<(theLoaiArrayList.size());j++){

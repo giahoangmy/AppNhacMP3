@@ -22,6 +22,7 @@ public class ManHinhChaoActivity extends AppCompatActivity {
                 }finally {
                     Intent iLogin=new Intent(ManHinhChaoActivity.this, LoginActivity.class);
                     startActivity(iLogin);
+                    finish();
 
                 }
             }

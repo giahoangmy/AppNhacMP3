@@ -3,7 +3,9 @@ package com.appmp3.appnhac.Model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Quangcao {
+import java.io.Serializable;
+
+public class Quangcao implements Serializable {
         @SerializedName("IdQuangCao")
         @Expose
         private String idQuangCao;

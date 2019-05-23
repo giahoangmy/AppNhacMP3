@@ -2,17 +2,17 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@drawable/custom_background_banner">
-    </View>
+
 <ImageView
     android:scaleType="fitXY"
     android:id="@+id/imageViewBackgroundBanner"
     android:layout_width="match_parent"
     android:layout_height="200dp" />
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/custom_background_banner">
+    </View>
     <RelativeLayout
         android:id="@+id/relative1"
         android:layout_width="match_parent"

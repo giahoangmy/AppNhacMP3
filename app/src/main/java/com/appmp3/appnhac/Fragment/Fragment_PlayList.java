@@ -1,18 +1,20 @@
 package com.appmp3.appnhac.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.appmp3.appnhac.Activity.ListNhac;
 import com.appmp3.appnhac.Adapter.PlaylistAdapter;
 import com.appmp3.appnhac.Model.PlayList;
 import com.appmp3.appnhac.R;
@@ -54,6 +56,13 @@ public class Fragment_PlayList extends Fragment {
                 playlistAdapter = new PlaylistAdapter(getActivity(),android.R.layout.simple_list_item_1,arrayPlayList);
                 lvPlayList.setAdapter(playlistAdapter);
                 setListViewHeightBasedOnChildren(lvPlayList);
+                lvPlayList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        Intent intent = new Intent(getActivity(), ListNhac.class);
+                        startActivity(intent);
+                    }
+                });
             }
 
             @Override
